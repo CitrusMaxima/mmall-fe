@@ -5,3 +5,7 @@ out/
 *.ipr
 *.iml
 *.iws
+
+# node ignore
+/node_modules/
+/dist/
