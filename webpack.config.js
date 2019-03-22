@@ -19,7 +19,7 @@ var getHtmlConfig = function (name) {
 // webpack config
 var config = {
     entry: {
-        'common': ['./src/page/common/index.js', 'webpack-dev-server/client?http://localhost:8088/'],
+        'common': ['./src/page/common/index.js'],
         'index': ['./src/page/index/index.js'],
         'login': ['./src/page/login/index.js']
     },
@@ -42,7 +42,8 @@ var config = {
             util: __dirname + '/src/util',
             page: __dirname + '/src/page',
             service: __dirname + '/src/service',
-            image: __dirname + '/src/image'
+            image: __dirname + '/src/image',
+            node_modules: __dirname + '/node_modules'
         }
     },
     devServer: {
