@@ -16,7 +16,7 @@ var _mm = {
                 if (0 === res.status) {
                     typeof param.success === 'function' && param.success(res.data, res.msg);
                 }
-                // 没有登录状态，需要强制登陆
+                // 没有登录状态，需要强制登录
                 else if (10 === res.status) {
                     _this.doLogin();
                 }
@@ -70,7 +70,7 @@ var _mm = {
             return /^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/.test(value);
         }
     },
-    // 统一登陆处理
+    // 统一登录处理
     doLogin: function () {
         window.location.href = './user-login.html?redirect=' + encodeURIComponent(window.location.href);
     },
