@@ -8,8 +8,8 @@ var formError = {
     show: function (errMsg) {
         $('.error-item').show().find('.err-msg').text(errMsg);
     },
-    hide: function (errMsg) {
-        $('.error-item').show().find('.err-msg').text('');
+    hide: function () {
+        $('.error-item').hide().find('.err-msg').text('');
     }
 };
 
