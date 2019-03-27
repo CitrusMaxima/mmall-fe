@@ -44,7 +44,7 @@ var page = {
                 pages: res.pages
             });
         }, function (errMsg) {
-            $listCon.html('<p class="err-tip">加载订单失败，请刷新后重试</p>')
+            $listCon.html('<p class="err-tip">加载订单失败，请刷新后重试</p>');
         });
     },
     // 加载分页信息
