@@ -6,6 +6,7 @@ var _order = require('service/order-service.js');
 var _address = require('service/address-service.js');
 var templateProduct = require('./product-list.string');
 var templateAddress = require('./address-list.string');
+var addressModal = require('./address-modal.js');
 
 var page = {
     data: {
@@ -21,9 +22,34 @@ var page = {
     },
     bindEvent: function () {
         var _this = this;
-        // 商品的选择 / 取消选择
-        $(document).on('click', '.cart-select', function () {
-
+        // 地址的选择
+        $(document).on('click', '.address-item', function () {
+            $(this).addClass('active').siblings('.address-item').removeClass('active');
+            _this.data.selectedAddressId = $(this).data('id');
+        });
+        // 订单的提交
+        $(document).on('click', '.order-submit', function () {
+            var shippingId = _this.data.selectedAddressId;
+            if (shippingId) {
+                _order.createOrder({
+                    shippingId: shippingId
+                }, function (res) {
+                    window.location.href = './payment.html?orderNumber=' + res.orderNo;
+                }, function (errMsg) {
+                    _mm.errorTips(errMsg);
+                });
+            } else {
+                _mm.errorTips('请选择地址后再提交');
+            }
+        });
+        // 地址的添加
+        $(document).on('click', '.address-add', function () {
+            addressModal.show({
+                isUpdate: false,
+                onSuccess: function () {
+                    _this.loadAddressList();
+                }
+            });
         });
     },
     // 加载地址列表
@@ -35,7 +61,7 @@ var page = {
             $('.address-con').html(addressListHtml);
         }, function (errMsg) {
             $('.address-con').html('<p class="err-tip">地址加载失败，请刷新后重试</p>');
-        })
+        });
     },
     // 加载商品清单
     loadProductList: function () {
@@ -46,7 +72,7 @@ var page = {
             $('.product-con').html(productListHtml);
         }, function (errMsg) {
             $('.product-con').html('<p class="err-tip">商品信息加载失败，请刷新后重试</p>');
-        })
+        });
     }
 };
 $(function () {
