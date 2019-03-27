@@ -51,6 +51,21 @@ var page = {
                 }
             });
         });
+        // 地址的编辑
+        $(document).on('click', '.address-update', function () {
+            var shippingId = $(this).parents('.address-item').data('id');
+            _address.getAddress(shippingId, function (res) {
+                addressModal.show({
+                    isUpdate: true,
+                    data: res,
+                    onSuccess: function () {
+                        _this.loadAddressList();
+                    }
+                });
+            }, function (errMsg) {
+                _mm.errorTips(errMsg);
+            });
+        });
     },
     // 加载地址列表
     loadAddressList: function () {
