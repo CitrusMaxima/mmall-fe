@@ -84,6 +84,11 @@
     border-bottom: 1px solid #d58717;
 }
 
+.floor-wrap .seckill {
+    margin: 30px 0;
+    width: 1080px
+}
+
 /* 更改各楼层标题颜色 */
 .floor-wrap:nth-child(2) .floor-title {
     color: #3b838c;
