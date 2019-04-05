@@ -1,6 +1,7 @@
 require('./index.css');
 require('page/common/nav/index.js');
 require('page/common/header/index.js');
+require('util/countdown/index.js');
 var _mm = require('util/mm.js');
 var _product = require('service/product-service.js');
 var Pagination = require('util/pagination/index.js');

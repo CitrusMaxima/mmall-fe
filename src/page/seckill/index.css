@@ -118,12 +118,12 @@
 }
 
 .p-list-con .p-item .p-countdown {
-
+    color: #999;
 }
 
 .p-list-con .p-item .p-link {
     position: relative;
-    padding-top: 30px;
+    padding-top: 10px;
 }
 
 .p-list-con .p-item .p-price {
@@ -164,7 +164,7 @@
     background-color: #fcdcdd;
     position: absolute;
     right: 0;
-    top: 37px;
+    top: 20px;
     width: 82px;
     height: 38px;
     border: 1px solid #fcdcdd;
@@ -173,26 +173,3 @@
     line-height: 38px;
     text-align: center;
 }
-
-/*
-.p-list-con .p-item .p-price-con {
-    height: 30px;
-    line-height: 30px;
-}
-
-.p-list-con .p-item .p-price-con .p-price {
-    font-size: 16px;
-    color: #e7380d;
-}
-
-.p-list-con .p-item .p-name-con {
-    height: 40px;
-    overflow: hidden;
-}
-
-.p-list-con .p-item .p-name-con .p-name {
-    line-height: 20px;
-    margin-bottom: 10px;
-    color: #666;
-    text-decoration: none;
-}*/
