@@ -71,6 +71,10 @@
     cursor: pointer;
 }
 
+.p-list-con .p-item:hover {
+    border: 1px solid #c60023;
+}
+
 .p-list-con .p-item .p-img {
     *position: relative;
     float: left;
