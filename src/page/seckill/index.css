@@ -67,6 +67,7 @@
     background-color: #fff;
     *zoom: 1;
     font: 12px/1.5 "Microsoft Yahei", tahoma, arial, "Hiragino Sans GB";
+    cursor: pointer;
 }
 
 .p-list-con .p-item .p-img {
@@ -112,7 +113,7 @@
 }
 
 .p-list-con .p-item .p-countdown {
-    
+
 }
 
 .p-list-con .p-item .p-link {
