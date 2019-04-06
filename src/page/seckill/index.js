@@ -2,6 +2,7 @@ require('./index.css');
 require('page/common/nav/index.js');
 require('page/common/header/index.js');
 require('util/countdown/index.js');
+var _countdown = require('util/countdown/index.js');
 var _mm = require('util/mm.js');
 var _product = require('service/product-service.js');
 var Pagination = require('util/pagination/index.js');
@@ -86,6 +87,7 @@ var page = {
         }, function (errMsg) {
             _mm.errorTips(errMsg);
         });
+        _countdown.countDown(5 * 24 * 60 * 60 * 1000);
     },
     // 加载分页信息
     loadPagination: function (pageInfo) {
