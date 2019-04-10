@@ -29,19 +29,25 @@ var page = {
         });
         // 订单的提交
         $(document).on('click', '.order-submit', function () {
-            var shippingId = _this.data.selectedAddressId;
-            if (shippingId) {
-                _order.createOrder({
-                    shippingId: shippingId
-                }, function (res) {
-                    window.location.href = './payment.html?orderNumber=' + res.orderNo;
-                }, function (errMsg) {
-                    _mm.errorTips(errMsg);
-                });
-            } else {
-                _mm.errorTips('请选择地址后再提交');
+                var shippingId = _this.data.selectedAddressId;
+                if (shippingId) {
+                    _order.createOrder({
+                        shippingId: shippingId
+                    }, function (res) {
+                        var $pageWrap = $('.page-wrap');
+                        $pageWrap.html('<div>排队中，请稍后...</div>');
+                        window.setInterval(function () {
+                            _order.getOrderResult(res, function (res) {
+                                window.location.href = './payment.html?orderNumber=' + res.orderNo;
+                            });
+                        }, 3e3);
+                    })
+                }
+                else {
+                    _mm.errorTips('请选择地址后再提交');
+                }
             }
-        });
+        );
         // 地址的添加
         $(document).on('click', '.address-add', function () {
             addressModal.show({
